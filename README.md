@@ -11,7 +11,7 @@ Youtube Video Downloader Telegram Bot
 ## Heroku Deploy
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/reboot13-git/ytdl-bot)
 
-Configure Dynos: Turn on `worker : app.js`
+Configure Dynos: Turn on `worker : main.js`
 
 
 
