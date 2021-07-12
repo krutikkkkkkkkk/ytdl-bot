@@ -1,0 +1,22 @@
+{
+  "name": "ytdl-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "env": {
+    "API_TOKEN": {
+        "description": "API Token , get it from @BotFather"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["youtube-dl","ytdl-bot","telegram", "telegram-bot","Youtube downloader bot"],
+  "author": "reboot13_dev",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "telegraf": "^4.4.0",
+    "youtube-dl": "^3.5.0"
+  }
+}
