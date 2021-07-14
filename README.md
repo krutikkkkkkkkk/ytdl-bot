@@ -3,7 +3,8 @@ Youtube Video Downloader Telegram Bot
 
 
 ### Commands
-`/ytdl {url}` Download video
+`/ytdl {url} {quality}` Download video
+Allowed quality settings are 144,240,360,480,720,1080.
 
 `/syt {query}` Search on youtube
 
