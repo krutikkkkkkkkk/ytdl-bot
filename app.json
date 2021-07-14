@@ -17,6 +17,7 @@
   "dependencies": {
     "dotenv": "^10.0.0",
     "telegraf": "^4.4.0",
-    "youtube-dl": "^3.5.0"
+    "youtube-dl": "^3.5.0",
+    "youtube-dl-exec": "^1.2.4"
   }
 }
