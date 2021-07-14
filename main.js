@@ -1,4 +1,3 @@
-require('dotenv').config()
 const { Telegraf } = require('telegraf')
 const TOKEN = process.env.TOKEN;
 const bot = new Telegraf(TOKEN)
@@ -20,10 +19,10 @@ bot.command('ytdl', (ctx) => {
     let args =  ctx.update.message.text.split(' ')
     let url = args[1]
     let mention = `@${ctx.message.from.username}`
+    if(!url.match(/^(?:https?:)?(?:\/\/)?(?:youtu\.be\/|(?:www\.|m\.)?youtube\.com\/(?:watch|v|embed)(?:\.php)?(?:\?.*v=|\/))([a-zA-Z0-9\_-]{7,15})(?:[\?&][a-zA-Z0-9\_-]+=[a-zA-Z0-9\_-]+)*(?:[&\/\#].*)?$/)) return ctx.reply("Enter a valid youtube url",{ reply_to_message_id: message_id , parse_mode: 'Markdown'})
     if(ctx.message.from.username == undefined){
        mention = ctx.message.from.first_name
     }
-    console.log(url)
     ctx.reply("***Processing your request...***",{ reply_to_message_id: message_id , parse_mode: 'Markdown'})
   
     try{
@@ -35,9 +34,7 @@ bot.command('ytdl', (ctx) => {
       }
       let title = info.title;
       let file_url = `[Download Link](${info.url})`
-  let description = `***Title: ${title} ***
-  ${file_url}
-  ***Video Requested By: [${mention}]***`
+      let description = `***Title: ${title} ***\n${file_url}\n***Video Requested By: [${mention}]***`
       ctx.reply(description,{ reply_to_message_id: message_id , parse_mode: 'Markdown'})
     })
   }
@@ -52,11 +49,8 @@ bot.command('ytdl', (ctx) => {
 bot.command('syt', (ctx) => {
     let message_id = ctx.message.message_id;
     let args =  ctx.update.message.text.split(' ')
-    let syt = "";
-    for(i=1;i< args.length;i++) {
-      syt += args[i] + " ";
-    }
-    let ytSearch = `[Open Youtube](https://www.youtube.com/results?search_query=${syt})`
+    syt = args.slice(1).join(' ');
+    let ytSearch = `[Search Results for ${syt}](https://www.youtube.com/results?search_query=${syt})`
       ctx.reply(ytSearch,{ reply_to_message_id: message_id , parse_mode: 'Markdown'})
   })
 
